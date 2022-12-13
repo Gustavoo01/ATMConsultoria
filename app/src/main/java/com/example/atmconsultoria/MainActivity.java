@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enviarEmail(){
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(""));
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:11996352894"));
+        startActivity(intent);
     }
 
     @Override
