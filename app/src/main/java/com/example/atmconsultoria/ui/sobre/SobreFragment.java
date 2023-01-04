@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.atmconsultoria.R;
 
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SobreFragment#newInstance} factory method to
@@ -60,7 +63,33 @@ public class SobreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre, container, false);
+
+        String descricao = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's " +
+                "standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+
+        Element versao = new Element();
+        versao.setTitle("Versão 0.3");
+
+        return new AboutPage(getActivity())
+                .setImage(R.drawable.logo)
+                .setDescription(descricao)
+
+                .addGroup("Redes Sociais")
+                .addFacebook("IngaDigital", "Facebook")
+                .addInstagram("ingadigital", "Instagram")
+                .addTwitter("ingadigital", "Twitter")
+                .addYoutube("Inga Digital", "YouTube")
+                .addGitHub("Gustavoo01", "GitHub")
+                .addPlayStore("com.google.android.apps.plus", "Download App")
+
+                .addGroup("Entre em Contato")
+                .addEmail("gustavosouza@ingadigital.com.br", "Envie um E-mail")
+                .addWebsite("http://www.ingadigital.com.br/", "Acesse nosso site")
+
+                .addItem(versao)
+
+                .create();
+
+        //return inflater.inflate(R.layout.fragment_sobre, container, false);
     }
 }

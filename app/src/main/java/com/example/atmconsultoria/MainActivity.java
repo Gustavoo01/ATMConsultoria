@@ -58,8 +58,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enviarEmail(){
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:11996352894"));
-        startActivity(intent);
+        String celular = "tel:44999038508";
+        String imagem = "https://whiplash.net/imagens_promo_22/ozzyosbourne_patient_capa_corte.jpg";
+        String endereco = "https://www.google.com.br/maps/place/Ing%C3%A1+Inform%C3%A1tica/@-23.4350209,-51.9521447,15z/data=!4m10!1m2!2m1!1singa+digital!3m6!1s0x94ecd0ca85f4e461:0x186e79ed21d8b3af!8m2!3d-23.4350209!4d-51.9346653!15sCgxpbmdhIGRpZ2l0YWySARB3ZWJzaXRlX2Rlc2lnbmVy4AEA!16s%2Fg%2F11gzmd1nf";
+
+        //Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(celular));
+        //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(imagem));
+        //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(endereco));
+        Intent intent = new Intent(Intent.ACTION_SEND);
+
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"atendimento@atmconsultoria.com.br"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Contato pelo APP");
+        intent.putExtra(Intent.EXTRA_TEXT, "Mensagem Automática");
+
+        //intent.setType("text/plain");
+        //intent.setType("message/rfc822");
+        //intent.setType("image/png");
+
+        startActivity(Intent.createChooser(intent, "Compartilhar"));
     }
 
     @Override
